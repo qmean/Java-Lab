@@ -1,4 +1,4 @@
-package string_class.string;
+package lang_package.string_class.string;
 
 public class StringConstantPool {
     public static void main(String[] args) {

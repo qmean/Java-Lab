@@ -1,4 +1,4 @@
-package string_class.string;
+package lang_package.string_class.string;
 
 public class StringSum {
     public static void main(String[] args) {

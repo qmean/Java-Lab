@@ -1,4 +1,4 @@
-package object_class.clone;
+package lang_package.object_class.clone;
 
 public class TwoWaysOfCopy {
     public static void main(String[] args) {

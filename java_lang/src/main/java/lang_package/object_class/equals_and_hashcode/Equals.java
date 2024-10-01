@@ -1,4 +1,4 @@
-package object_class.equals_and_hashcode;
+package lang_package.object_class.equals_and_hashcode;
 
 import java.util.Objects;
 

@@ -12,22 +12,44 @@ class Printer {
 	}
 }
 
-class BurgerAdder {
-	static void addBurger(List<Burger> list) {
-		list.add(new Burger());
-		list.add(new CheeseBurger());
+class Adder {
+	static void add(List<?> list) {
+		// list.add(new Fruit()); // -> 컴파일오류
+	}
+}
+
+class FoodAdder {
+	Object[] items = new Object[10];
+	int size = 0;
+
+	public FoodAdder(List<Food> foods) {
+		for (Food food : foods) {
+			items[size++] = food;
+		}
+	}
+
+	public void copyFoods(List<Food> list) {
+		for (int i = 0; i < size; i++) {
+			list.add((Food)items[i]);
+		}
 	}
 }
 
 public class Main {
 	public static void main(String[] args) {
-		List<Food> foods = List.of(new Fruit(), new Burger(), new CheeseBurger());
-		List<Burger> burgers = List.of(new Burger(), new CheeseBurger());
-		Printer.print(foods);
-		Printer.print(burgers);
+		Food food = new Food();
+		Object object = food;
+		List<Food> foods = List.of(new Food(), new Fruit(), new Burger(), new CheeseBurger());
 
+		FoodAdder foodAdder = new FoodAdder(foods);
+		List<Food> foodList = new ArrayList<>();
+		List<Object> objectList = new ArrayList<>();
 		List<Burger> burgerList = new ArrayList<>();
-		BurgerAdder.addBurger(burgerList);
+		List<CheeseBurger> cheeseBurgerList = new ArrayList<>();
+		foodAdder.copyFoods(foodList);
+		foodAdder.copyFoods(objectList);
+		foodAdder.copyFoods(burgerList);
+		foodAdder.copyFoods(cheeseBurgerList);
 
 		FoodWrapper<? extends Food> fruitFoodWrapper = new FoodWrapper<>(new Fruit());
 		FoodWrapper<? extends Food> burgerFoodWrapper = new FoodWrapper<>(new Burger());

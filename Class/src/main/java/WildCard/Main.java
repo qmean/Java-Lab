@@ -47,9 +47,9 @@ public class Main {
 		List<Burger> burgerList = new ArrayList<>();
 		List<CheeseBurger> cheeseBurgerList = new ArrayList<>();
 		foodAdder.copyFoods(foodList);
-		foodAdder.copyFoods(objectList);
-		foodAdder.copyFoods(burgerList);
-		foodAdder.copyFoods(cheeseBurgerList);
+		// foodAdder.copyFoods(objectList);
+		// foodAdder.copyFoods(burgerList);
+		// foodAdder.copyFoods(cheeseBurgerList);
 
 		FoodWrapper<? extends Food> fruitFoodWrapper = new FoodWrapper<>(new Fruit());
 		FoodWrapper<? extends Food> burgerFoodWrapper = new FoodWrapper<>(new Burger());

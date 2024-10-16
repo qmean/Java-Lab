@@ -1,23 +1,23 @@
 package Reflection;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class GetMethod {
 
-	/**
-	 * Method 객체를 얻는방법
-	 * 1. getMethod() 메소드를 사용하는 방법 (public 메소드만 포함)
-	 * 2. getMethods() 메소드를 사용하는 방법 (public 메소드만 포함)
-	 * 3. getDeclaredMethod() 메소드를 사용하는 방법 (모든 접근제어자 메소드 포함)
-	 * 4. getDeclaredMethods() 메소드를 사용하는 방법 (모든 접근제어자 메소드 포함)
-	 */
 	public static void main(String[] args) {
 		TestClass testClass = new TestClass();
 		TestInterface testInterface = new TestClass();
 
 		Class<? extends TestClass> testClassClass = testClass.getClass();
 		Class<? extends TestInterface> testInterfaceClass = testInterface.getClass();
+
+		/**
+		 * Method 객체를 얻는방법
+		 * 1. getMethod() 메소드를 사용하는 방법 (public 메소드만 포함)
+		 * 2. getMethods() 메소드를 사용하는 방법 (public 메소드만 포함)
+		 * 3. getDeclaredMethod() 메소드를 사용하는 방법 (모든 접근제어자 메소드 포함)
+		 * 4. getDeclaredMethods() 메소드를 사용하는 방법 (모든 접근제어자 메소드 포함)
+		 */
 
 		// getMethod 메서드 사용하여 public 메소드 획득
 		try {
@@ -82,31 +82,6 @@ public class GetMethod {
 		}
 		System.out.println("===== End Of Methods -> Interface");
 
-		// public method invoke
-		try {
-			Method publicMethod = testClassClass.getMethod("publicMethod");
-			publicMethod.invoke(testClass);
-		} catch (NoSuchMethodException e) {
-			System.out.println("Public Method Not Found");
-		} catch (InvocationTargetException | IllegalAccessException | IllegalArgumentException e) {
-			System.out.println("Public Method Invoke Failed");
-		}
 
-		// private method invoke
-		try {
-			Method privateMethod = testClassClass.getDeclaredMethod("privateMethod");
-			privateMethod.setAccessible(true);
-			privateMethod.invoke(testClass);
-		} catch (Exception e) {
-			System.out.println("Private Method Invoke Failed");
-		}
-
-		// static method invoke
-		try {
-			Method staticMethod = testClassClass.getMethod("publicStaticMethod");
-			staticMethod.invoke(null);
-		} catch (Exception e) {
-			System.out.println("Static Method Invoke Failed");
-		}
 	}
 }

@@ -28,5 +28,11 @@ public class GetClass {
 		} catch (ClassNotFoundException e) {
 			System.out.println("ClassNotFound In Class.forName(\"Reflection.TestClass\")");
 		}
+
+		String name = testClassClass.getName();
+		String simpleName = testClassClass.getSimpleName();
+
+		System.out.println("name: " + name);
+		System.out.println("simpleName: " + simpleName);
 	}
 }

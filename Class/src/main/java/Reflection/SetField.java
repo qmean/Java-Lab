@@ -23,7 +23,7 @@ public class SetField {
 		try {
 			Field publicField = testClassClass.getField("publicField");
 			publicField.set(testClass, "publicField");
-			System.out.println("publicField 에 값을 설정했습니다. 설정 후 값 : " + testClass.publicField);
+			System.out.println("publicField 에 값을 설정했습니다. 설정 후 값 : " + publicField.get(testClass));
 		} catch (NoSuchFieldException e) {
 			System.out.println("publicField 를 찾을 수 없습니다.");
 		} catch (IllegalAccessException e) {
@@ -34,7 +34,7 @@ public class SetField {
 		try {
 			Field privateField = testClassClass.getDeclaredField("privateField");
 			privateField.set(testClass, "privateField");
-			System.out.println("privateField 에 값을 설정했습니다. 설정 후 값 : " + testClass.getPrivateField());
+			System.out.println("privateField 에 값을 설정했습니다. 설정 후 값 : " + privateField.get(testClass));
 		} catch (NoSuchFieldException e) {
 			System.out.println("privateField 를 찾을 수 없습니다.");
 		} catch (IllegalAccessException e) {

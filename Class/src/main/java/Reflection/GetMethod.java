@@ -20,7 +20,6 @@ public class GetMethod {
 		Class<? extends TestInterface> testInterfaceClass = testInterface.getClass();
 
 		// getMethod 메서드 사용하여 public 메소드 획득
-
 		try {
 			System.out.println("Try To Find Method");
 			testClassClass.getMethod("publicMethod");

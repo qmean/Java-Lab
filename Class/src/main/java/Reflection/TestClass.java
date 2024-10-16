@@ -1,6 +1,7 @@
 package Reflection;
 
 @TestAnnotation("TestClass")
+@InheritedAnnotation
 class TestClass implements TestInterface {
 	String defaultField;
 	private String privateField;
@@ -51,5 +52,9 @@ class TestClass implements TestInterface {
 	@Override
 	public void hello() {
 		System.out.println("hello");
+	}
+
+	public String getPrivateField() {
+		return privateField;
 	}
 }
